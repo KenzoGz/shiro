@@ -1,0 +1,6 @@
+# Bỏ qua các file rác của hệ điều hành
+.DS_Store
+Thumbs.db
+
+# Bỏ qua thư mục cài đặt nếu sau này ông dùng thêm các thư viện
+node_modules/
