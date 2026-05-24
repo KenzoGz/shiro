@@ -1,94 +1,139 @@
 /* =========================================
-   1. KỊCH BẢN: MA THUẬT NO GAME NO LIFE
+   1. BACKGROUND EFFECT 
 ========================================= */
 const symbols = ['♠', '♥', '♦', '♣', '♚', '♛', '♞', '♟', '✦', '✧'];
 const colors = ['glow-pink', 'glow-cyan', 'glow-purple'];
-const symbolCount = 35; 
 const bgContainer = document.getElementById('ngnl-background');
 
 function createSymbol() {
     const symbolEl = document.createElement('div');
     symbolEl.classList.add('ngnl-symbol');
-    
-    const randomSymbol = symbols[Math.floor(Math.random() * symbols.length)];
-    const randomColor = colors[Math.floor(Math.random() * colors.length)];
-    
-    symbolEl.innerText = randomSymbol;
-    symbolEl.classList.add(randomColor);
-    
-    const leftPos = Math.random() * 100; 
-    const size = Math.random() * 25 + 15; 
-    const duration = Math.random() * 15 + 10; 
-    const delay = Math.random() * 15; 
-    
-    symbolEl.style.left = `${leftPos}%`;
-    symbolEl.style.fontSize = `${size}px`;
-    symbolEl.style.animationDuration = `${duration}s`;
-    symbolEl.style.animationDelay = `-${delay}s`; 
-    
-    if (bgContainer) {
-        bgContainer.appendChild(symbolEl);
-    }
+    symbolEl.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+    symbolEl.classList.add(colors[Math.floor(Math.random() * colors.length)]);
+    symbolEl.style.left = `${Math.random() * 100}%`;
+    symbolEl.style.fontSize = `${Math.random() * 25 + 15}px`;
+    symbolEl.style.animationDuration = `${Math.random() * 15 + 10}s`;
+    symbolEl.style.animationDelay = `-${Math.random() * 15}s`; 
+    if (bgContainer) bgContainer.appendChild(symbolEl);
 }
-
-if (bgContainer) {
-    for (let i = 0; i < symbolCount; i++) {
-        createSymbol();
-    }
-}
+if (bgContainer) { for (let i = 0; i < 35; i++) createSymbol(); }
 
 /* =========================================
-   2. THANH ĐIỀU HƯỚNG TRƯỢT XUỐNG
-========================================= */
-const stickyNav = document.getElementById('sticky-nav');
-
-window.addEventListener('scroll', () => {
-    const screenHeight = window.innerHeight;
-    if (window.scrollY > screenHeight * 0.4) {
-        stickyNav.style.top = '0';
-    } else {
-        stickyNav.style.top = '-80px';
-    }
-});
-
-/* =========================================
-   3. CUỘN TRANG MƯỢT NHƯ LỤA (FULLPAGE SCROLL)
+   2. SNAP SCROLL
 ========================================= */
 const pages = document.querySelectorAll('.snap-page');
 let currentPage = 0;
 let isScrolling = false;
 
-// Bắt sự kiện lăn con lăn chuột (wheel)
 window.addEventListener('wheel', (e) => {
-    // Ngăn chặn trình duyệt cuộn theo từng khấc giật giật
-    e.preventDefault(); 
-    
-    // Nếu trang web đang trượt dở, không cho phép lăn tiếp (Chống trôi nhiều trang)
-    if (isScrolling) return; 
-
-    if (e.deltaY > 0) {
-        // Lăn xuống
-        if (currentPage < pages.length - 1) {
-            currentPage++;
-            scrollToPage(currentPage);
+    if (window.innerWidth > 900) {
+        e.preventDefault(); 
+        if (isScrolling) return; 
+        
+        if (e.deltaY > 0 && currentPage < pages.length - 1) { 
+            currentPage++; 
+            scrollToPage(currentPage); 
         }
-    } else if (e.deltaY < 0) {
-        // Lăn lên
-        if (currentPage > 0) {
-            currentPage--;
-            scrollToPage(currentPage);
+        else if (e.deltaY < 0 && currentPage > 0) { 
+            currentPage--; 
+            scrollToPage(currentPage); 
         }
     }
-}, { passive: false }); // Lệnh này bắt buộc phải có để chặn cuộn mặc định của trình duyệt
+}, { passive: false });
 
 function scrollToPage(index) {
-    isScrolling = true; // Khóa cuộn
-    
-    // Ra lệnh trượt mượt mà tới trang tiếp theo
+    isScrolling = true; 
     pages[index].scrollIntoView({ behavior: 'smooth' });
-    
-    // Đợi 800ms cho hiệu ứng trượt kết thúc thì mới mở khóa cuộn
-    setTimeout(() => {
-        isScrolling = false;
-    }, 800);
+    setTimeout(() => { isScrolling = false; }, 800); 
+}
+
+function scrollToNext() {
+    if (currentPage < pages.length - 1) {
+        currentPage++;
+        scrollToPage(currentPage);
+    }
+}
+
+/* =========================================
+   3. CLOCK
+========================================= */
+function updateClock() {
+    const now = new Date();
+    document.getElementById('clock-hour').innerText = String(now.getHours()).padStart(2, '0');
+    document.getElementById('clock-minute').innerText = String(now.getMinutes()).padStart(2, '0');
+    document.getElementById('clock-sec').innerText = String(now.getSeconds()).padStart(2, '0');
+    document.getElementById('clock-date').innerText = now.toLocaleDateString('en-US', { 
+    weekday: 'long', 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric' 
+    });
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+/* =========================================
+   4. API DISCORD 
+========================================= */
+const DISCORD_USER_ID = "366492309375811597"; 
+
+function fetchDiscordStatus() {
+    if (DISCORD_USER_ID === "ID") {
+        document.getElementById('discord-username').innerText = "ID not found!";
+        document.getElementById('discord-tag').innerText = "Please change ID in script!";
+        return;
+    }
+
+    fetch(`https://api.lanyard.rest/v1/users/${DISCORD_USER_ID}`)
+        .then(response => response.json())
+        .then(res => {
+            if (!res.success) {
+                document.getElementById('discord-tag').innerText = "Connection failed";
+                return;
+            }
+            const data = res.data;
+            const user = data.discord_user;
+
+            document.getElementById('discord-username').innerText = user.global_name || user.username;
+            document.getElementById('discord-tag').innerText = (user.discriminator && user.discriminator !== "0") ? `${user.username}#${user.discriminator}` : `@${user.username}`; 
+            
+            if (user.avatar) document.getElementById('discord-avatar').src = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
+            document.getElementById('discord-status-dot').className = `status-dot ${data.discord_status}`;
+
+            const activityEl = document.getElementById('discord-activity');
+            if (data.listening_to_spotify && data.spotify) {
+                activityEl.innerHTML = `<i class="fab fa-spotify" style="color: #1DB954;"></i> Nghe: ${data.spotify.track}`;
+            } else {
+                const gameActivity = data.activities.find(act => act.type === 0);
+                if (gameActivity) activityEl.innerHTML = `<i class="fas fa-gamepad"></i> Now playing: ${gameActivity.name}`;
+                else {
+                    const customActivity = data.activities.find(act => act.type === 4);
+                    activityEl.innerHTML = customActivity ? customActivity.state : "";
+                }
+            }
+        })
+        .catch(err => {
+            console.error("Error", err);
+            document.getElementById('discord-tag').innerText = "Did not join the server";
+        });
+}
+
+fetchDiscordStatus();
+setInterval(fetchDiscordStatus, 15000);
+
+/* =========================================
+   5. RANDOM GIF   
+========================================= */
+const gifList = [
+    'assets/images/shiro1.gif',
+    'assets/images/shiro2.gif',
+    'assets/images/shiro3.gif',
+    'assets/images/shiro4.gif',
+    'assets/images/shiro5.gif'
+];
+
+const gifElement = document.getElementById('random-gif');
+if (gifElement) {
+    const randomImage = gifList[Math.floor(Math.random() * gifList.length)];
+    gifElement.src = randomImage;
 }

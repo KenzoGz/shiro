@@ -3,55 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang web cá nhân của KenzoGz</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>KenzoGz</title>
+    <title>KenzoGz</title>
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-    <nav id="sticky-nav" class="sticky-nav">
-        <img src="assets/images/avatar.jpg" alt="Avatar mini">
-        <h2>KenzoGz</h2>
-    </nav>
 
     <div id="ngnl-background"></div>
 
     <header class="hero-section snap-page">
         <div class="profile-container">
-            <img src="assets/images/avatar.jpg" alt="Avatar của KenzoGz" class="avatar">
+            <img src="assets/images/avatar.jpg" alt="Avatar" class="avatar">
             <div class="profile-text">
                 <h1>KenzoGz</h1> 
-                <p>Hi! I'm KenzoGz, a dude from Vietnam. Nice to meet you :3</p>
+                <p class="typing-text">Hello, friend ...</p>
             </div>
+        </div>
+        <div class="scroll-indicator" onclick="scrollToNext()">
+            <i class="fas fa-chevron-down"></i>
         </div>
     </header>
 
     <section class="bento-section snap-page">
         <main class="bento-grid">
             
-            <div class="bento-card social-card">
-                <h3>Mạng xã hội</h3>
-                <p>Github | Discord | Facebook | Youtube</p>
+            <div class="bento-card span-1 social-card facebook">
+                <i class="fab fa-facebook social-icon"></i>
+                <h3>Facebook</h3>
+                <a href="https://www.facebook.com/tmkha.4925" target="_blank" class="bento-link">Visit</a>
             </div>
 
-            <div class="bento-card stats-card">
-                <h3>Nothing here</h3>
-                <p>Nothing</p>
-                <p>Nothing</p>
+            <div class="bento-card span-1 social-card youtube">
+                <i class="fab fa-youtube social-icon"></i>
+                <h3>YouTube</h3>
+                <a href="https://www.youtube.com/@kenzogz4925" target="_blank" class="bento-link">Visit</a>
             </div>
 
-            <div class="bento-card status-card">
-                <h3>Trạng thái</h3>
-                <p>🟢 Đang đi ngủ...</p>
+            <div class="bento-card span-2 clock-card">
+                <div class="clock-time-wrapper">
+                    <span id="clock-hour">00</span><span class="clock-colon">:</span><span id="clock-minute">00</span>
+                    <span id="clock-sec">00</span>
+                </div>
+                <div class="clock-date-badge">
+                    <i class="fas fa-calendar-alt"></i> <span id="clock-date">Loading...</span>
+                </div>
             </div>
 
-            <div class="bento-card projects-card">
-                <h3>Nothing here</h3>
-                <ul>
-                    <li>Nothing</li>
-                    <li>Nothing</li>
-                </ul>
+            <div class="bento-card span-2 contact-card">
+                <div class="contact-header">
+                    <i class="fas fa-comment-dots contact-icon"></i>
+                    <h3>Connect with me</h3>
+                </div>
+                <p class="contact-desc">You can find me here!</p>
+                <div class="contact-links">
+                    <a href="mailto:kha004925@gmail.com" class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>kha004925@gmail.com</span>
+                    </a>
+                    <a href="https://t.me/kenzog1155" target="_blank" class="contact-item">
+                        <i class="fab fa-telegram-plane"></i>
+                        <span>@kenzog1155</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="bento-card span-2 gif-card">
+                <img id="random-gif" src="assets/images/shiro5.gif" alt="My GIF" class="bento-gif">
+            </div>
+
+            <div class="bento-card span-2 discord-card">
+                <div class="discord-avatar-container">
+                    <img id="discord-avatar" src="assets/images/avatar.jpg" alt="Discord Avatar">
+                    <span id="discord-status-dot" class="status-dot offline"></span>
+                </div>
+                <div class="discord-info">
+                    <h3 id="discord-username">Connecting...</h3>
+                    <p id="discord-tag" class="discord-tag">Please wait</p>
+                    <p id="discord-activity" class="discord-activity"></p>
+                </div>
+            </div>
+
+            <div class="bento-card span-2 status-card">
+                <div class="status-header">
+                    <span>🟢</span>
+                    <h3>Status</h3>
+                </div>
+                <p>Sleepy all the time.</p>
             </div>
 
         </main>
