@@ -1,101 +1,137 @@
-<!DOCTYPE html>
-<html lang="vi">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KenzoGz</title>
-    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1a102b">
+  <meta name="description" content="KenzoGz's little corner of the internet — Shiro OS is sleeping.">
+  <title>Shiro OS — KenzoGz</title>
+  <link id="site-icon" rel="shortcut icon" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <main class="system-shell" id="system-shell" data-state="sleeping">
+    <div class="monitor-frame">
+      <div class="monitor-topline"><span>SHIRO · PERSONAL COMPUTER</span><span class="monitor-led"><i></i> POWER</span></div>
+      <div class="screen">
+        <div class="screen-wallpaper" aria-hidden="true"></div>
+        <div class="screen-vignette" aria-hidden="true"></div>
+        <div class="scanlines" aria-hidden="true"></div>
+        <div id="ngnl-background" aria-hidden="true"></div>
 
-    <div id="ngnl-background"></div>
+        <section class="sleep-screen" id="sleep-screen" aria-labelledby="sleep-title">
+          <div class="sleep-clock"><span id="sleep-time">00:00</span><span id="sleep-date">LOADING LOCAL TIME</span></div>
+          <div class="sleep-center">
+            <div class="avatar-frame"><img data-asset="avatar" alt="KenzoGz avatar"></div>
+            <p class="eyebrow" data-copy="home.eyebrow"></p>
+            <h1 id="sleep-title"><span data-copy="home.owner"></span><span class="cursor">_</span></h1>
+            <p class="sleep-subtitle"><span class="sleep-dot"></span> <span data-copy="home.sleepStatus"></span></p>
+            <button class="power-button" id="power-on" type="button"><span class="power-icon" aria-hidden="true">⏻</span> LOG IN</button>
+          </div>
+          <div class="sleep-footer"><span>SHIRO OS <b>v.01</b></span><span data-copy="home.sleepFooter"></span></div>
+        </section>
 
-    <header class="hero-section snap-page">
-        <div class="profile-container">
-            <img src="assets/images/avatar.jpg" alt="Avatar" class="avatar">
-            <div class="profile-text">
-                <h1>KenzoGz</h1> 
-                <p class="typing-text">Hello, friend ...</p>
-            </div>
-        </div>
-        <div class="scroll-indicator" onclick="scrollToNext()">
-            <i class="fas fa-chevron-down"></i>
-        </div>
-    </header>
+        <section class="boot-screen" id="boot-screen" aria-live="polite" aria-hidden="true">
+          <div class="boot-mark">shiro<span>_</span></div>
+          <div class="boot-copy"><p data-copy="home.bootMessage"></p><div class="boot-track"><i></i></div><span id="boot-status"></span></div>
+        </section>
 
-    <section class="bento-section snap-page">
-        <main class="bento-grid">
-            
-            <div class="bento-card span-1 social-card facebook">
-                <i class="fab fa-facebook social-icon"></i>
-                <h3>Facebook</h3>
-                <a href="https://www.facebook.com/tmkha.4925" target="_blank" class="bento-link">Visit</a>
-            </div>
-
-            <div class="bento-card span-1 social-card youtube">
-                <i class="fab fa-youtube social-icon"></i>
-                <h3>YouTube</h3>
-                <a href="https://www.youtube.com/@kenzogz4925" target="_blank" class="bento-link">Visit</a>
-            </div>
-
-            <div class="bento-card span-2 clock-card">
-                <div class="clock-time-wrapper">
-                    <span id="clock-hour">00</span><span class="clock-colon">:</span><span id="clock-minute">00</span>
-                    <span id="clock-sec">00</span>
+        <section class="desktop" id="desktop" aria-label="Shiro OS desktop" aria-hidden="true">
+          <header class="desktop-topbar">
+            <div class="brand-chip"><span class="brand-star">♟</span> SHIRO OS</div>
+            <div class="topbar-note"><span class="online-led"></span> <span data-copy="home.topbarNote"></span></div>
+          </header>
+          <div class="desktop-area">
+            <div class="widget-grid" aria-label="Desktop widgets">
+              <article class="widget widget-clock">
+                <div class="widget-label"><span>LOCAL TIME</span><span class="widget-spark">✦</span></div>
+                <div class="widget-time" id="widget-time">00:00</div>
+                <div class="widget-date" id="widget-date">Loading date...</div>
+                <div class="currently-inline">
+                  <div class="currently-heading"><span data-copy="home.currentlyHeading"></span><span data-copy="home.currentlyAside"></span></div>
+                  <p class="currently-line"><span class="tiny-orbit">◉</span><span data-copy="home.currently"></span></p>
                 </div>
-                <div class="clock-date-badge">
-                    <i class="fas fa-calendar-alt"></i> <span id="clock-date">Loading...</span>
-                </div>
+              </article>
+              <article class="discord-widget" aria-label="Discord presence">
+                <div class="discord-avatar-wrap"><img id="discord-avatar" data-asset="avatar" alt=""><span id="discord-status-dot" class="status-dot offline"></span></div>
+                <img class="spotify-cover" id="spotify-cover" alt="" hidden>
+                <div class="discord-info"><strong id="discord-username">Connecting...</strong><span id="discord-tag">Checking the signal</span><span id="discord-activity" class="discord-activity" hidden></span><div class="spotify-progress" id="spotify-progress" hidden><span id="spotify-current-time">0:00</span><span class="spotify-track" id="spotify-track" role="progressbar" aria-label="Spotify track progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="spotify-progress-fill"></i></span><span id="spotify-duration">0:00</span></div></div>
+                <span class="discord-live"><i></i> <span id="discord-status-text">CONNECTING</span></span>
+              </article>
+              <button class="gif-sticker" id="gif-widget" type="button" aria-label="Shuffle Shiro GIF">
+                <img id="random-gif" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="Shiro animation">
+                <span class="gif-stamp"><span data-copy="home.gifStamp"></span> <b>↻</b></span>
+              </button>
+              <article class="thought-note">
+                <div class="note-heading"><span data-copy="home.thoughtHeading"></span><span>☾</span></div>
+                <p id="random-thought"></p>
+                <span class="note-caption" data-copy="home.thoughtFooter"></span>
+              </article>
+              <article class="widget widget-small-things">
+                  <div class="small-status"><span class="status-emoji">☁</span><span id="random-status"></span><span class="status-live">● READY</span></div>
+                <div class="little-things"><span class="little-label" data-copy="home.littleThingsLabel"></span><div class="little-pills" id="little-pills"></div></div>
+              </article>
             </div>
 
-            <div class="bento-card span-2 contact-card">
-                <div class="contact-header">
-                    <i class="fas fa-comment-dots contact-icon"></i>
-                    <h3>Connect with me</h3>
-                </div>
-                <p class="contact-desc">You can find me here!</p>
-                <div class="contact-links">
-                    <a href="mailto:kha004925@gmail.com" class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>kha004925@gmail.com</span>
-                    </a>
-                    <a href="https://t.me/kenzog1155" target="_blank" class="contact-item">
-                        <i class="fab fa-telegram-plane"></i>
-                        <span>@kenzog1155</span>
-                    </a>
-                </div>
+            <div class="window-layer" id="window-layer">
+              <section class="app-window" id="window-about" data-window="about" aria-labelledby="about-title" hidden>
+                <div class="window-titlebar"><span><i class="window-glyph">✿</i> user.exe — About</span><div class="window-controls"><button class="window-control" type="button" aria-label="Minimize About window" title="Minimize" data-minimize="about">−</button><button class="window-control" type="button" aria-label="Maximize About window" title="Maximize" data-maximize="about">□</button><button class="window-close" type="button" aria-label="Close About window" title="Close" data-close="about">×</button></div></div>
+                <div class="window-content about-content"><div class="about-avatar"><img data-asset="aboutAvatar" alt="KenzoGz"></div><div><p class="window-kicker" data-copy="about.kicker"></p><h2 id="about-title" data-copy="about.title"></h2><p data-copy="about.description"></p><div class="social-links"><a data-copy="about.facebookLabel" target="_blank" rel="noreferrer"></a><a data-copy="about.youtubeLabel" target="_blank" rel="noreferrer"></a></div></div></div>
+              </section>
+              <section class="app-window" id="window-projects" data-window="projects" aria-labelledby="projects-title" hidden>
+                <div class="window-titlebar"><span><i class="window-glyph">▰</i> projects.exe — Projects</span><div class="window-controls"><button class="window-control" type="button" aria-label="Minimize Projects window" title="Minimize" data-minimize="projects">−</button><button class="window-control" type="button" aria-label="Maximize Projects window" title="Maximize" data-maximize="projects">□</button><button class="window-close" type="button" aria-label="Close Projects window" title="Close" data-close="projects">×</button></div></div>
+                <div class="window-content collection-content" data-collection="projects"><p class="window-kicker" data-collection-kicker></p><h2 id="projects-title" data-collection-title></h2><p class="empty-note" data-collection-description></p><div class="collection-items"></div></div>
+              </section>
+              <section class="app-window" id="window-experiments" data-window="experiments" aria-labelledby="experiments-title" hidden>
+                <div class="window-titlebar"><span><i class="window-glyph">⌘</i> lab.exe — Experiments</span><div class="window-controls"><button class="window-control" type="button" aria-label="Minimize Experiments window" title="Minimize" data-minimize="experiments">−</button><button class="window-control" type="button" aria-label="Maximize Experiments window" title="Maximize" data-maximize="experiments">□</button><button class="window-close" type="button" aria-label="Close Experiments window" title="Close" data-close="experiments">×</button></div></div>
+                <div class="window-content collection-content" data-collection="experiments"><p class="window-kicker" data-collection-kicker></p><h2 id="experiments-title" data-collection-title></h2><p class="empty-note" data-collection-description></p><div class="collection-items"></div></div>
+              </section>
+              <section class="app-window" id="window-fiction" data-window="fiction" aria-labelledby="fiction-title" hidden>
+                <div class="window-titlebar"><span><i class="window-glyph">❝</i> storybook.exe — Fiction</span><div class="window-controls"><button class="window-control" type="button" aria-label="Minimize Fiction window" title="Minimize" data-minimize="fiction">−</button><button class="window-control" type="button" aria-label="Maximize Fiction window" title="Maximize" data-maximize="fiction">□</button><button class="window-close" type="button" aria-label="Close Fiction window" title="Close" data-close="fiction">×</button></div></div>
+                <div class="window-content fiction-content"><p class="window-kicker" data-copy="fiction.kicker"></p><h2 id="fiction-title" data-copy="fiction.title"></h2><p class="fiction-quote" data-copy="fiction.quote"></p><p class="window-caption" data-copy="fiction.caption"></p></div>
+              </section>
+              <section class="app-window" id="window-archive" data-window="archive" aria-labelledby="archive-title" hidden>
+                <div class="window-titlebar"><span><i class="window-glyph">▤</i> archive.exe — Archive</span><div class="window-controls"><button class="window-control" type="button" aria-label="Minimize Archive window" title="Minimize" data-minimize="archive">−</button><button class="window-control" type="button" aria-label="Maximize Archive window" title="Maximize" data-maximize="archive">□</button><button class="window-close" type="button" aria-label="Close Archive window" title="Close" data-close="archive">×</button></div></div>
+                <div class="window-content collection-content" data-collection="archive"><p class="window-kicker" data-collection-kicker></p><h2 id="archive-title" data-collection-title></h2><p class="empty-note" data-collection-description></p><div class="collection-items"></div></div>
+              </section>
             </div>
-
-            <div class="bento-card span-2 gif-card">
-                <img id="random-gif" src="assets/images/shiro5.gif" alt="My GIF" class="bento-gif">
+          </div>
+          <footer class="taskbar">
+            <button class="start-button" type="button" id="start-button" aria-expanded="false"><span>♟</span><b>start</b></button>
+            <div class="taskbar-divider"></div>
+            <nav class="taskbar-pins" aria-label="Pinned apps">
+              <button type="button" data-open="about" aria-label="Open About" title="About"><span class="pin-glyph icon-user">✿</span></button>
+              <button type="button" data-open="projects" aria-label="Open Projects" title="Projects"><span class="pin-glyph icon-folder">▰</span></button>
+              <button type="button" data-open="experiments" aria-label="Open Experiments" title="Experiments"><span class="pin-glyph icon-lab">⌘</span></button>
+              <button type="button" data-open="fiction" aria-label="Open Fiction" title="Fiction"><span class="pin-glyph icon-book">❝</span></button>
+              <button type="button" data-open="archive" aria-label="Open Archive" title="Archive"><span class="pin-glyph icon-archive">▤</span></button>
+            </nav>
+            <div class="task-buttons" id="task-buttons" aria-label="Open apps"></div>
+            <div class="taskbar-tray"><span class="tray-spark">✦</span><span>EN</span><time id="tray-clock">00:00</time></div>
+          </footer>
+          <div class="start-menu" id="start-menu" hidden>
+            <div class="start-menu-head"><img data-asset="avatar" alt=""><div><strong data-copy="home.owner"></strong><span>Shiro OS user</span></div><span class="start-online"></span></div>
+            <div class="start-menu-label">YOUR LITTLE APPS</div>
+            <div class="start-apps">
+              <button type="button" data-open="about"><span class="start-app-icon icon-user">✿</span> About</button>
+              <button type="button" data-open="projects"><span class="start-app-icon icon-folder">▰</span> Projects</button>
+              <button type="button" data-open="experiments"><span class="start-app-icon icon-lab">⌘</span> Experiments</button>
+              <button type="button" data-open="fiction"><span class="start-app-icon icon-book">❝</span> Fiction</button>
+              <button type="button" data-open="archive"><span class="start-app-icon icon-archive">▤</span> Archive</button>
             </div>
-
-            <div class="bento-card span-2 discord-card">
-                <div class="discord-avatar-container">
-                    <img id="discord-avatar" src="assets/images/avatar.jpg" alt="Discord Avatar">
-                    <span id="discord-status-dot" class="status-dot offline"></span>
-                </div>
-                <div class="discord-info">
-                    <h3 id="discord-username">Connecting...</h3>
-                    <p id="discord-tag" class="discord-tag">Please wait</p>
-                    <p id="discord-activity" class="discord-activity"></p>
-                </div>
-            </div>
-
-            <div class="bento-card span-2 status-card">
-                <div class="status-header">
-                    <span>🟢</span>
-                    <h3>Status</h3>
-                </div>
-                <p>Sleepy all the time.</p>
-            </div>
-
-        </main>
-    </section>
-
-    <script src="js/main.js"></script>
+            <button class="sleep-again" type="button" id="sleep-again"><span>⏻</span> Put computer to sleep</button>
+          </div>
+        </section>
+      </div>
+      <div class="monitor-bottomline"><span>◦ SHIRO CRT DISPLAY</span><span class="monitor-brand">SHIRO<span>OS</span></span><span>60 HZ · DREAM MODE</span></div>
+    </div>
+    <div class="monitor-stand" aria-hidden="true"><span></span></div>
+    <div class="monitor-base" aria-hidden="true"></div>
+    <p class="desk-caption">a tiny world by KenzoGz <span>✧</span></p>
+  </main>
+  <script src="js/main.js"></script>
 </body>
 </html>

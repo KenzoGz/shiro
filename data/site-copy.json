@@ -1,0 +1,51 @@
+{
+  "home": {
+    "owner": "KenzoGz",
+    "eyebrow": "A PERSONAL COMPUTER",
+    "sleepStatus": "SLEEPING — PRESS TO WAKE",
+    "sleepFooter": "✦ take your time in here ✦",
+    "bootMessage": "Restoring your desktop corner...",
+    "bootStages": ["waking the monitor", "finding your place", "almost there"],
+    "topbarNote": "a quiet place on the internet",
+    "currentlyHeading": "CURRENTLY",
+    "currentlyAside": "NOW PLAYING WITH LIFE",
+    "currently": "somewhere between dreaming and making things...",
+    "thoughtHeading": "RANDOM THOUGHT",
+    "thoughtFooter": "A NOTE LEFT ON THE DESK",
+    "thoughts": [
+      "“Somewhere, something incredible is waiting to be known.”",
+      "“Even the smallest star can find its way through the dark.”",
+      "“Rest is part of the story, too.”",
+      "“A quiet little life is still a big adventure.”",
+      "“Maybe the long way home is the nicest one.”"
+    ],
+    "statusLines": [
+      "sleepy all the time.",
+      "somewhere in a daydream.",
+      "running on good music.",
+      "taking it one little step at a time.",
+      "currently vibing.",
+      "resting between quests.",
+      "here, but thinking about the moon."
+    ],
+    "littleThingsLabel": "THINGS I LIKE",
+    "littleThings": ["late nights", "soft skies", "good music", "quiet rain", "warm tea", "tiny wins", "cozy games", "starry skies", "old songs", "purple lights"],
+    "gifStamp": "ALBUMS",
+    "ambientSymbols": ["♠", "♥", "♦", "♣", "♚", "♛", "♞", "✦", "✧"]
+  },
+  "about": {
+    "kicker": "A HUMAN, PROBABLY",
+    "title": "Hey, I'm KenzoGz.",
+    "description": "Just a sleepy person making little things on the internet. Welcome to this corner — stay as long as you like.",
+    "facebookLabel": "Facebook ↗",
+    "facebookUrl": "https://www.facebook.com/tmkha.4925",
+    "youtubeLabel": "YouTube ↗",
+    "youtubeUrl": "https://www.youtube.com/@kenzogz4925"
+  },
+  "fiction": {
+    "kicker": "~/DESKTOP/STORIES",
+    "title": "Little worlds",
+    "quote": "“The night was quiet enough to hear the stars thinking.”",
+    "caption": "A fragment from a story not written yet."
+  }
+}
