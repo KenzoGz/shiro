@@ -2,5 +2,10 @@
   "title": "Curiosity in progress",
   "kicker": "~/DESKTOP/LAB",
   "description": "Small ideas, odd prototypes, and happy accidents from the lab.",
-  "items": []
+  "items": [],
+  "vi": {
+    "title": "Tò mò đang thành hình",
+    "kicker": "~/MÁY_TÍNH/PHÒNG_THÍ_NGHIỆM",
+    "description": "Những ý tưởng nhỏ, nguyên mẫu kỳ lạ và vài lần vô tình tạo ra điều thú vị."
+  }
 }

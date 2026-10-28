@@ -1,0 +1,38 @@
+{
+  "home": {
+    "owner": "KenzoGz",
+    "eyebrow": "MÁY TÍNH CÁ NHÂN",
+    "sleepStatus": "ĐANG NGỦ — NHẤN ĐỂ ĐÁNH THỨC",
+    "sleepFooter": "✦ cứ thong thả ở đây nhé ✦",
+    "bootMessage": "Đang khôi phục góc nhỏ của bạn...",
+    "bootStages": ["đánh thức màn hình", "tìm lại chỗ của bạn", "sắp xong rồi"],
+    "topbarNote": "một góc yên tĩnh trên internet",
+    "lifeHeading": "ĐANG SỐNG THEO CÁCH RIÊNG",
+    "lifeText": "lưng chừng giữa mơ mộng và làm vài điều hay ho...",
+    "thoughtHeading": "MỘT Ý NGHĨ CHỢT ĐẾN",
+    "thoughts": [
+      "“Ở đâu đó, điều kỳ diệu đang chờ được khám phá.”",
+      "“Ngôi sao nhỏ nhất cũng tìm được lối xuyên qua màn đêm.”",
+      "“Nghỉ ngơi cũng là một phần của câu chuyện.”",
+      "“Một cuộc sống bình yên vẫn có thể là chuyến phiêu lưu lớn.”",
+      "“Có khi con đường vòng về nhà lại là con đường dễ thương nhất.”"
+    ],
+    "gifStamp": "BỘ SƯU TẬP",
+    "ambientSymbols": ["♠", "♥", "♦", "♣", "♚", "♛", "♞", "✦", "✧"]
+  },
+  "about": {
+    "kicker": "MỘT CON NGƯỜI, CÓ LẼ THẾ",
+    "title": "Chào, tui là KenzoGz.",
+    "description": "Một người hơi buồn ngủ, thích làm những điều nho nhỏ trên internet. Chào mừng đến góc nhỏ này — cứ ở lại bao lâu tùy thích nhé.",
+    "facebookLabel": "Facebook ↗",
+    "facebookUrl": "https://www.facebook.com/tmkha.4925",
+    "youtubeLabel": "YouTube ↗",
+    "youtubeUrl": "https://www.youtube.com/@kenzogz4925"
+  },
+  "fiction": {
+    "kicker": "~/MÁY_TÍNH/CÂU_CHUYỆN",
+    "title": "Những thế giới nhỏ",
+    "quote": "“Đêm yên tĩnh đến mức có thể nghe thấy những vì sao đang suy nghĩ.”",
+    "caption": "Một mẩu chuyện chưa được viết ra."
+  }
+}

@@ -2,5 +2,10 @@
   "title": "Saved for later",
   "kicker": "~/DESKTOP/ARCHIVE",
   "description": "Old sketches, old thoughts, and things worth keeping.",
-  "items": []
+  "items": [],
+  "vi": {
+    "title": "Cất lại để dành",
+    "kicker": "~/MÁY_TÍNH/LƯU_TRỮ",
+    "description": "Những nét phác cũ, suy nghĩ cũ và điều gì đó đáng để giữ lại."
+  }
 }

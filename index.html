@@ -9,7 +9,7 @@
   <link id="site-icon" rel="shortcut icon" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -36,10 +36,14 @@
 
         <section class="boot-screen" id="boot-screen" aria-live="polite" aria-hidden="true">
           <div class="boot-mark">shiro<span>_</span></div>
-          <div class="boot-copy"><p data-copy="home.bootMessage"></p><div class="boot-track"><i></i></div><span id="boot-status"></span></div>
+          <div class="boot-copy"><p data-copy="home.bootMessage"></p><div class="boot-track"><i></i></div><div class="boot-terminal"><span class="boot-terminal-path">~/system/boot</span><span class="boot-terminal-prompt">›</span><span id="boot-status"></span><i class="boot-cursor" aria-hidden="true"></i></div></div>
         </section>
 
         <section class="desktop" id="desktop" aria-label="Shiro OS desktop" aria-hidden="true">
+          <div class="system-toast" id="system-toast" role="status" aria-live="polite" hidden>
+            <span class="toast-glyph" aria-hidden="true">✦</span>
+            <span class="toast-copy"><small>SHIRO://ALBUMS</small><strong data-i18n="toastMessage">A new frame found its way in.</strong></span>
+          </div>
           <header class="desktop-topbar">
             <div class="brand-chip"><span class="brand-star">♟</span> SHIRO OS</div>
             <div class="topbar-note"><span class="online-led"></span> <span data-copy="home.topbarNote"></span></div>
@@ -47,19 +51,24 @@
           <div class="desktop-area">
             <div class="widget-grid" aria-label="Desktop widgets">
               <article class="widget widget-clock">
-                <div class="widget-label"><span>LOCAL TIME</span><span class="widget-spark">✦</span></div>
-                <div class="widget-time" id="widget-time">00:00</div>
+                <div class="widget-label"><span data-i18n="localTime">LOCAL TIME</span><span class="widget-spark">✦</span></div>
+                <div class="widget-time" id="widget-time">00:00<span class="widget-seconds"><span class="seconds-separator">:</span><span id="widget-seconds">00</span></span></div>
                 <div class="widget-date" id="widget-date">Loading date...</div>
-                <div class="currently-inline">
-                  <div class="currently-heading"><span data-copy="home.currentlyHeading"></span><span data-copy="home.currentlyAside"></span></div>
-                  <p class="currently-line"><span class="tiny-orbit">◉</span><span data-copy="home.currently"></span></p>
+                <div class="life-copy-wrap">
+                  <div class="life-heading"><span data-copy="home.lifeHeading"></span></div>
+                  <p class="life-copy"><span class="tiny-orbit">◉</span><span data-copy="home.lifeText"></span></p>
                 </div>
               </article>
               <article class="discord-widget" aria-label="Discord presence">
-                <div class="discord-avatar-wrap"><img id="discord-avatar" data-asset="avatar" alt=""><span id="discord-status-dot" class="status-dot offline"></span></div>
-                <img class="spotify-cover" id="spotify-cover" alt="" hidden>
-                <div class="discord-info"><strong id="discord-username">Connecting...</strong><span id="discord-tag">Checking the signal</span><span id="discord-activity" class="discord-activity" hidden></span><div class="spotify-progress" id="spotify-progress" hidden><span id="spotify-current-time">0:00</span><span class="spotify-track" id="spotify-track" role="progressbar" aria-label="Spotify track progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="spotify-progress-fill"></i></span><span id="spotify-duration">0:00</span></div></div>
-                <span class="discord-live"><i></i> <span id="discord-status-text">CONNECTING</span></span>
+                <div class="discord-title" data-i18n="discordPresence">DISCORD PRESENCE</div>
+                <div class="discord-profile">
+                  <div class="discord-avatar-wrap"><img id="discord-avatar" data-asset="avatar" alt=""><span id="discord-status-dot" class="status-dot offline"></span></div>
+                  <div class="discord-info"><strong id="discord-username">Connecting...</strong><span id="discord-tag">Checking the signal</span><span class="discord-live"><span id="discord-status-text">CONNECTING</span></span></div>
+                </div>
+                <div class="discord-activity-row" id="discord-activity-row" hidden>
+                  <img class="spotify-cover" id="spotify-cover" alt="" hidden>
+                  <div class="discord-activity-info"><span id="discord-activity" class="discord-activity"></span><div class="spotify-progress" id="spotify-progress" hidden><span id="spotify-current-time">0:00</span><span class="spotify-track" id="spotify-track" role="progressbar" aria-label="Spotify track progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="spotify-progress-fill"></i></span><span id="spotify-duration">0:00</span></div></div>
+                </div>
               </article>
               <button class="gif-sticker" id="gif-widget" type="button" aria-label="Shuffle Shiro GIF">
                 <img id="random-gif" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="Shiro animation">
@@ -68,11 +77,6 @@
               <article class="thought-note">
                 <div class="note-heading"><span data-copy="home.thoughtHeading"></span><span>☾</span></div>
                 <p id="random-thought"></p>
-                <span class="note-caption" data-copy="home.thoughtFooter"></span>
-              </article>
-              <article class="widget widget-small-things">
-                  <div class="small-status"><span class="status-emoji">☁</span><span id="random-status"></span><span class="status-live">● READY</span></div>
-                <div class="little-things"><span class="little-label" data-copy="home.littleThingsLabel"></span><div class="little-pills" id="little-pills"></div></div>
               </article>
             </div>
 
@@ -80,27 +84,32 @@
               <section class="app-window" id="window-about" data-window="about" aria-labelledby="about-title" hidden>
                 <div class="window-titlebar"><span><i class="window-glyph">✿</i> user.exe — About</span><div class="window-controls"><button class="window-control" type="button" aria-label="Minimize About window" title="Minimize" data-minimize="about">−</button><button class="window-control" type="button" aria-label="Maximize About window" title="Maximize" data-maximize="about">□</button><button class="window-close" type="button" aria-label="Close About window" title="Close" data-close="about">×</button></div></div>
                 <div class="window-content about-content"><div class="about-avatar"><img data-asset="aboutAvatar" alt="KenzoGz"></div><div><p class="window-kicker" data-copy="about.kicker"></p><h2 id="about-title" data-copy="about.title"></h2><p data-copy="about.description"></p><div class="social-links"><a data-copy="about.facebookLabel" target="_blank" rel="noreferrer"></a><a data-copy="about.youtubeLabel" target="_blank" rel="noreferrer"></a></div></div></div>
+                <div class="window-statusbar"><code>~/desktop/user/profile.md</code><span data-i18n="localTag">LOCAL</span></div>
               </section>
               <section class="app-window" id="window-projects" data-window="projects" aria-labelledby="projects-title" hidden>
                 <div class="window-titlebar"><span><i class="window-glyph">▰</i> projects.exe — Projects</span><div class="window-controls"><button class="window-control" type="button" aria-label="Minimize Projects window" title="Minimize" data-minimize="projects">−</button><button class="window-control" type="button" aria-label="Maximize Projects window" title="Maximize" data-maximize="projects">□</button><button class="window-close" type="button" aria-label="Close Projects window" title="Close" data-close="projects">×</button></div></div>
                 <div class="window-content collection-content" data-collection="projects"><p class="window-kicker" data-collection-kicker></p><h2 id="projects-title" data-collection-title></h2><p class="empty-note" data-collection-description></p><div class="collection-items"></div></div>
+                <div class="window-statusbar"><code>~/desktop/projects/index.json</code><span data-i18n="syncedTag">SYNCED</span></div>
               </section>
               <section class="app-window" id="window-experiments" data-window="experiments" aria-labelledby="experiments-title" hidden>
                 <div class="window-titlebar"><span><i class="window-glyph">⌘</i> lab.exe — Experiments</span><div class="window-controls"><button class="window-control" type="button" aria-label="Minimize Experiments window" title="Minimize" data-minimize="experiments">−</button><button class="window-control" type="button" aria-label="Maximize Experiments window" title="Maximize" data-maximize="experiments">□</button><button class="window-close" type="button" aria-label="Close Experiments window" title="Close" data-close="experiments">×</button></div></div>
                 <div class="window-content collection-content" data-collection="experiments"><p class="window-kicker" data-collection-kicker></p><h2 id="experiments-title" data-collection-title></h2><p class="empty-note" data-collection-description></p><div class="collection-items"></div></div>
+                <div class="window-statusbar"><code>~/desktop/lab/experiments.json</code><span data-i18n="syncedTag">SYNCED</span></div>
               </section>
               <section class="app-window" id="window-fiction" data-window="fiction" aria-labelledby="fiction-title" hidden>
                 <div class="window-titlebar"><span><i class="window-glyph">❝</i> storybook.exe — Fiction</span><div class="window-controls"><button class="window-control" type="button" aria-label="Minimize Fiction window" title="Minimize" data-minimize="fiction">−</button><button class="window-control" type="button" aria-label="Maximize Fiction window" title="Maximize" data-maximize="fiction">□</button><button class="window-close" type="button" aria-label="Close Fiction window" title="Close" data-close="fiction">×</button></div></div>
                 <div class="window-content fiction-content"><p class="window-kicker" data-copy="fiction.kicker"></p><h2 id="fiction-title" data-copy="fiction.title"></h2><p class="fiction-quote" data-copy="fiction.quote"></p><p class="window-caption" data-copy="fiction.caption"></p></div>
+                <div class="window-statusbar"><code>~/desktop/stories/fragment.txt</code><span data-i18n="localTag">LOCAL</span></div>
               </section>
               <section class="app-window" id="window-archive" data-window="archive" aria-labelledby="archive-title" hidden>
                 <div class="window-titlebar"><span><i class="window-glyph">▤</i> archive.exe — Archive</span><div class="window-controls"><button class="window-control" type="button" aria-label="Minimize Archive window" title="Minimize" data-minimize="archive">−</button><button class="window-control" type="button" aria-label="Maximize Archive window" title="Maximize" data-maximize="archive">□</button><button class="window-close" type="button" aria-label="Close Archive window" title="Close" data-close="archive">×</button></div></div>
                 <div class="window-content collection-content" data-collection="archive"><p class="window-kicker" data-collection-kicker></p><h2 id="archive-title" data-collection-title></h2><p class="empty-note" data-collection-description></p><div class="collection-items"></div></div>
+                <div class="window-statusbar"><code>~/desktop/archive/index.json</code><span data-i18n="syncedTag">SYNCED</span></div>
               </section>
             </div>
           </div>
           <footer class="taskbar">
-            <button class="start-button" type="button" id="start-button" aria-expanded="false"><span>♟</span><b>start</b></button>
+            <button class="start-button" type="button" id="start-button" aria-expanded="false"><span>♟</span><b data-i18n="start">start</b></button>
             <div class="taskbar-divider"></div>
             <nav class="taskbar-pins" aria-label="Pinned apps">
               <button type="button" data-open="about" aria-label="Open About" title="About"><span class="pin-glyph icon-user">✿</span></button>
@@ -110,7 +119,7 @@
               <button type="button" data-open="archive" aria-label="Open Archive" title="Archive"><span class="pin-glyph icon-archive">▤</span></button>
             </nav>
             <div class="task-buttons" id="task-buttons" aria-label="Open apps"></div>
-            <div class="taskbar-tray"><span class="tray-spark">✦</span><span>EN</span><time id="tray-clock">00:00</time></div>
+            <div class="taskbar-tray"><span class="tray-spark">✦</span><button class="language-toggle" id="language-toggle" type="button" aria-label="Switch language to Vietnamese" title="Switch language"><span data-language-option="en">EN</span><i aria-hidden="true">/</i><span data-language-option="vi">VI</span></button><time id="tray-clock">00:00</time></div>
           </footer>
           <div class="start-menu" id="start-menu" hidden>
             <div class="start-menu-head"><img data-asset="avatar" alt=""><div><strong data-copy="home.owner"></strong><span>Shiro OS user</span></div><span class="start-online"></span></div>

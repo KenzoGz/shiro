@@ -7,11 +7,9 @@
     "bootMessage": "Restoring your desktop corner...",
     "bootStages": ["waking the monitor", "finding your place", "almost there"],
     "topbarNote": "a quiet place on the internet",
-    "currentlyHeading": "CURRENTLY",
-    "currentlyAside": "NOW PLAYING WITH LIFE",
-    "currently": "somewhere between dreaming and making things...",
+    "lifeHeading": "NOW PLAYING WITH LIFE",
+    "lifeText": "somewhere between dreaming and making things...",
     "thoughtHeading": "RANDOM THOUGHT",
-    "thoughtFooter": "A NOTE LEFT ON THE DESK",
     "thoughts": [
       "“Somewhere, something incredible is waiting to be known.”",
       "“Even the smallest star can find its way through the dark.”",
@@ -19,17 +17,6 @@
       "“A quiet little life is still a big adventure.”",
       "“Maybe the long way home is the nicest one.”"
     ],
-    "statusLines": [
-      "sleepy all the time.",
-      "somewhere in a daydream.",
-      "running on good music.",
-      "taking it one little step at a time.",
-      "currently vibing.",
-      "resting between quests.",
-      "here, but thinking about the moon."
-    ],
-    "littleThingsLabel": "THINGS I LIKE",
-    "littleThings": ["late nights", "soft skies", "good music", "quiet rain", "warm tea", "tiny wins", "cozy games", "starry skies", "old songs", "purple lights"],
     "gifStamp": "ALBUMS",
     "ambientSymbols": ["♠", "♥", "♦", "♣", "♚", "♛", "♞", "✦", "✧"]
   },
