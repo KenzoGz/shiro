@@ -4,15 +4,6 @@ Shiro OS is a personal website presented as a small, dreamy desktop computer. It
 
 The home desktop keeps four main widgets: local time, Discord presence, a rotating Shiro GIF, and a random thought. The taskbar opens About, Projects, Experiments, Fiction, and Archive in movable app windows. The interface supports English and Vietnamese and works as a static site; it has no build step or custom backend.
 
-## Run locally
-
-The page loads its copy, assets, and collection entries with `fetch`, so opening `index.html` directly with `file://` will not work. From the repository root, start any static web server. For example, with Python:
-
-```powershell
-python -m http.server 8000
-```
-
-Then open <http://localhost:8000/>. Stop the server with `Ctrl+C`.
 
 ## Project layout
 

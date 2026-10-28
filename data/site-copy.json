@@ -6,10 +6,10 @@
     "sleepFooter": "✦ take your time in here ✦",
     "bootMessage": "Restoring your desktop corner...",
     "bootStages": ["waking the monitor", "finding your place", "almost there"],
-    "topbarNote": "a quiet place on the internet",
+    "topbarNote": "Shiro is the best little sister!",
     "lifeHeading": "NOW PLAYING WITH LIFE",
     "lifeText": "somewhere between dreaming and making things...",
-    "thoughtHeading": "RANDOM THOUGHT",
+    "thoughtHeading": "SHIRO THOUGHT",
     "thoughts": [
       "“Somewhere, something incredible is waiting to be known.”",
       "“Even the smallest star can find its way through the dark.”",
@@ -22,8 +22,8 @@
   },
   "about": {
     "kicker": "A HUMAN, PROBABLY",
-    "title": "Hey, I'm KenzoGz.",
-    "description": "Just a sleepy person making little things on the internet. Welcome to this corner — stay as long as you like.",
+    "title": "Hi, I'm KenzoGz.",
+    "description": "Just a sleepy person making random things on the internet. Welcome to this corner — stay as long as you like.",
     "facebookLabel": "Facebook ↗",
     "facebookUrl": "https://www.facebook.com/tmkha.4925",
     "youtubeLabel": "YouTube ↗",

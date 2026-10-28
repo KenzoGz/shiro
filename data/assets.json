@@ -4,9 +4,11 @@
   "avatar": "assets/images/avatar.jpg",
   "aboutAvatar": "assets/images/avatar2.jpg",
   "gifs": [
+    "assets/images/shiro1.gif",
     "assets/images/shiro2.gif",
     "assets/images/shiro3.gif",
     "assets/images/shiro4.gif",
-    "assets/images/shiro5.gif"
+    "assets/images/shiro5.gif",
+    "assets/images/shiro6.gif"
   ]
 }
