@@ -2843,10 +2843,7 @@ and clear keyboard focus. */
   border-color: rgba(222, 180, 255, .58);
   background: linear-gradient(140deg, rgba(107, 61, 130, .84), rgba(69, 62, 127, .82) 76%, rgba(55, 72, 130, .78));
   box-shadow: 0 12px 26px rgba(22, 7, 42, .22), 0 0 16px rgba(175, 107, 239, .13), inset 0 1px rgba(255,255,255,.12);
-}.widget-label,
-.discord-title,
-.life-heading,
-.note-heading,
+}
 .start-button {
   box-shadow: 0 2px 0 #8869a6, 0 0 14px rgba(219, 151, 255, .38), 0 5px 18px rgba(146, 90, 194, .22);
 }
@@ -2949,6 +2946,13 @@ and clear keyboard focus. */
 .widget-label,
 .thought-note .note-heading {
   text-shadow: 0 0 9px rgba(188, 164, 255, .26);
+}
+.widget-label,
+.life-heading,
+.discord-title,
+.note-heading {
+  background: transparent;
+  box-shadow: none;
 }
 .status-dot,
 .online-led,
